@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": ["C:\\SFML-2.5.1\\include\\**"],
+      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+      "cStandard": "gnu17",
+      "cppStandard": "gnu++14",
+      "intelliSenseMode": "windows-gcc-x64",
+      "compilerArgs": ["-I C:\\SFML-2.5.1\\include\\**"]
+    }
+  ],
+  "version": 4
+}
