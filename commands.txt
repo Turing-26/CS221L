@@ -1,3 +1,0 @@
-g++ -c application.cpp -IC:/SFML-2.5.1/include
-g++ application.o -o app -LC:/SFML-2.5.1/lib -l sfml-graphics -l sfml-window -l sfml-system
-./app
