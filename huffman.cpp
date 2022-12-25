@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "queues.h"
 #include "hashMap.h"
 using namespace std;

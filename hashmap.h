@@ -1,123 +1,88 @@
-#include <list>
-template <typename V>
-
-struct ListNode
+struct listNode
 {
-    V value[3];
-    ListNode *next;
-    ListNode()
+    int pix[3];
+    string code;
+    listNode *next;
+    listNode(int val[], string c)
     {
-        next = NULL;
-    }
-    ListNode(V v)
-    {
-        value = v;
-        next = NULL;
+        for (int i = 0; i < 3; i++)
+            pix[i] = val[i];
+        code = c;
     }
 };
 
-template <typename V>
-class HashMap;
-
-template <typename V>
-
-class List
+class list
 {
-    ListNode<V> *head;
+    listNode *head;
 
 public:
-    List() : head(NULL) {}
+    list() : head(NULL) {}
 
-    void insert(ListNode<V> *newListNode)
+    void insert(int val[], string c)
     {
+        listNode *newNode = new listNode(val, c);
+
         if (!head)
-            head = newListNode;
+            head = newNode;
         else
         {
-            ListNode<V> *traverse = head;
+            listNode *traverse = head;
 
             while (traverse->next)
-            {
                 traverse = traverse->next;
-            }
 
-            traverse->next = newListNode;
+            traverse->next = newNode;
         }
     }
 
-    bool search(V val[])
+    string search(int val[])
     {
-        ListNode<V> *traverse = head;
+        if (!head)
+            return '\0';
+
+        listNode *traverse = head;
 
         while (traverse)
         {
-            if (val[0] == traverse->value[0] && val[1] == traverse->value[1] && val[2] == traverse->value[2])
-                return true;
-
-            traverse = traverse->next;
+            if (traverse->pix[0] == val[0] && traverse->pix[1] == val[1] && traverse->pix[2] == val[2])
+                return traverse->code;
         }
 
-        return false;
-    }
-
-    void deleteListNode(V val[])
-    {
-        ListNode<V> *traverse = head, *prev = NULL;
-
-        while (traverse)
-        {
-            if (val[0] == traverse->value[0] && val[1] == traverse->value[1] && val[2] == traverse->value[2] && prev == NULL)
-            {
-                head = NULL;
-                break;
-            }
-            else if (val[0] == traverse->value[0] && val[1] == traverse->value[1] && val[2] == traverse->value[2])
-            {
-                prev->next = traverse->next;
-                break;
-            }
-
-            prev = traverse;
-            traverse = traverse->next;
-        }
+        return '\0';
     }
 };
-
-template <typename V>
 
 class HashMap
 {
     int size;
-    List<V> *table;
+    list *table;
 
 public:
-    HashMap(int a)
+    HashMap(int s)
     {
-        size = a;
-        table = new List<V>[size];
+        size = s;
+        table = new list[size];
     }
 
-    int hashFunc(int k)
+    int hashFunc(int val[])
     {
-        return k % size;
+        int res = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            res += val[i] * i;
+        }
+        return res % size;
     }
 
-    void insert(V value)
+    void insert(int val[], string code)
     {
-        ListNode<V> *newListNode = new ListNode<V>(value);
-        int index = hashFunc(value);
-        table[index].insert(newListNode);
+        int index = hashFunc(val);
+        table[index].insert(val, code);
     }
 
-    bool search(int val)
+    string search(int val[])
     {
         int index = hashFunc(val);
         return table[index].search(val);
-    }
-
-    void deleteEntry(int val)
-    {
-        int index = hashFunc(val);
-        table[index].deleteListNode(val);
     }
 };
