@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include "queues.h"
 #include "hashMap.h"
@@ -69,13 +68,13 @@ public:
             pq.dequeue();
             min2 = pq.getMin();
             pq.dequeue();
-            cout << min1->freq << " " << min2->freq << endl;
+            // cout << min1->freq << " " << min2->freq << endl;
 
             node = new TreeNode<int>(min1->freq + min2->freq);
             node->left = min1;
             node->right = min2;
 
-            cout << node->freq << endl;
+            // cout << node->freq << endl;
             pq.enqueue(node);
         }
 
@@ -83,12 +82,12 @@ public:
         pq.dequeue();
         min2 = pq.getMin();
         // pq.dequeue();
-        cout << min1->freq << " " << min2->freq << " " << endl;
+        // cout << min1->freq << " " << min2->freq << " " << endl;
         node = new TreeNode<int>(min1->freq + pq.getMin()->freq);
         node->left = min1;
         node->right = min2;
         root = node;
-        cout << root->freq << endl;
+        // cout << root->freq << endl;
     }
 
     void makeHuffcode()
@@ -96,38 +95,3 @@ public:
         makeHuffcode(root, "");
     }
 };
-
-int main()
-{
-    HuffmanTree<int> hf;
-
-    int arr[3] = {3, 120, 4};
-    hf.insert(arr, 3);
-
-    for (int i = 0; i < 3; i++)
-        arr[i] = 20;
-    hf.insert(arr, 2);
-
-    for (int i = 0; i < 3; i++)
-        arr[i] = 55;
-    hf.insert(arr, 6);
-
-    for (int i = 0; i < 3; i++)
-        arr[i] = 4;
-    hf.insert(arr, 5);
-
-    for (int i = 0; i < 3; i++)
-        arr[i] = 66;
-    hf.insert(arr, 1);
-
-    for (int i = 0; i < 3; i++)
-        arr[i] = 156;
-    hf.insert(arr, 7);
-
-    for (int i = 0; i < 3; i++)
-        arr[i] = 99;
-    hf.insert(arr, 4);
-    hf.buildTree();
-    cout << "--------------------------------------------\n";
-    hf.makeHuffcode();
-}

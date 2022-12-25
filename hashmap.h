@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 struct listNode
 {
     int pix[3];
@@ -38,7 +41,7 @@ public:
     string search(int val[])
     {
         if (!head)
-            return '\0';
+            return "\0";
 
         listNode *traverse = head;
 
@@ -48,7 +51,7 @@ public:
                 return traverse->code;
         }
 
-        return '\0';
+        return "\0";
     }
 };
 
