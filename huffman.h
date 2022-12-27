@@ -33,6 +33,7 @@ class HuffmanTree
     PriorityQueue<TreeNode<int> *> pq;
     TreeNode<int> *root;
     int len, width;
+    HashMap<string> h;
 
     void makeHuffcode(TreeNode<int> *node, string code)
     {
@@ -40,17 +41,15 @@ class HuffmanTree
         {
             makeHuffcode(node->left, code + '0');
             if (node->left == NULL && node->right == NULL)
-                cout << node->freq << " " << code << endl;
+                h.insert(node->data, code);
             makeHuffcode(node->right, code + '1');
         }
     }
 
 public:
-    HuffmanTree() : root(NULL)
-    {
-    }
+    HuffmanTree() : root(NULL) {}
 
-    void insert(int val[], int freq)
+    void insert(int val[], int freq, int x, int y)
     {
         TreeNode<int> *node = new TreeNode<int>(val, freq);
         pq.enqueue(node);
