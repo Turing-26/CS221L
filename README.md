@@ -4,6 +4,16 @@ University: Ghulam Ishaq Khan Institute of Engineering Sciences and Technology\
 Course: Data Structures and Algorithms (Lab)\
 Course Instructor: Usama Arshad Janjua\
 Group Members: Tahir Muzaffar (2021665), Sarim Ahmad (2021572), Shehryar Ahmad (2021598)
+
+## Instructions on how tu run the program:-
+```
+### On Linux:
+1. Install SFML by typing "sudo apt-get install libsfml-dev"
+2. In your directory containing the program run "g++ -c <filename>.cpp"
+3. Run "g++ <filename>.o -o app -lsfml-graphics -lsfml-window -lsfml-system"
+4. Run "./app"
+```
+
 ## Libraries used
 >Simple and Fast Multimedia Library (SFML) used for graphics.
 ## Commands used to run this project
