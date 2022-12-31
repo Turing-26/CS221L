@@ -1,6 +1,6 @@
 /**
  * @file application.cpp
- * @author Sarim Ahmad(2021572), Tahir Muzaffar(2021665), Shehryar Ahmed(2021598)
+ * @author Sarim Ahmad(2021572), Tahir Muzaffar(2021665), Shehryar Ahmad(2021598)
  * @brief This application is is the core of our image compression technique. It takes an image, breaks it down into its pixel components and then uses the widely used huffman encoding technique to output a compressed data file, we use the SFML library to use its image reading data structures to read an image directly and then apply our huffman encoding
  * @version 0.1
  * @date 2022-12-28

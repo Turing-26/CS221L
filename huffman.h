@@ -79,11 +79,13 @@ public:
         // We pop from the MinQueue the 2 lowest frequencies add them, make the two lowest terms used to create it its children and add it back to the MinQueue, until there is only 1 element left in the Queue which will be our root. This is the core of our huffman tree
         while (pq.size() - 1 != 1)
         {
+            // pop 2 minimum frequencies from MinQueue
             min1 = pq.getMin();
             pq.dequeue();
             min2 = pq.getMin();
             pq.dequeue();
 
+            // create new node from addition of both frequencies and add both of the nodes as its child elements
             node = new TreeNode<int>(min1->freq + min2->freq);
             node->left = min1;
             node->right = min2;
