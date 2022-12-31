@@ -6,6 +6,7 @@ Course Instructor: Usama Arshad Janjua\
 Group Members: Tahir Muzaffar (2021665), Sarim Ahmad (2021572), Shehryar Ahmad (2021598)
 
 ## Instructions on how to run the program:-
+First install the complete program from the master branch
 ### On Linux:
 1. Install SFML by typing "sudo apt-get install libsfml-dev"
 2. In your root of the directory containing the program, run
