@@ -5,7 +5,7 @@ Course: Data Structures and Algorithms (Lab)\
 Course Instructor: Usama Arshad Janjua\
 Group Members: Tahir Muzaffar (2021665), Sarim Ahmad (2021572), Shehryar Ahmad (2021598)
 
-## Instructions on how tu run the program:-
+## Instructions on how to run the program:-
 ### On Linux:
 1. Install SFML by typing "sudo apt-get install libsfml-dev"
 2. In your directory containing the program run
@@ -22,19 +22,23 @@ g++ <filename>.o -o app -lsfml-graphics -lsfml-window -lsfml-system
 ```
 
 ### On Windows:
-1. Install SFML by clicking [here](https://www.sfml-dev.org/download/sfml/2.5.1/)
+1. Install SFML by clicking [here](https://www.sfml-dev.org/download/sfml/2.5.1/). Let it install the default location.
+2. Copy the .dll files from the bin folder from the path where SFML is installed.
+3. Run the command in the directory of the program
+```
+g++ -c <filename>.cpp -I<path where SFML is installed>/include
+```
+4. Run
+```
+g++ <filename>.o -o app -L<path where SFML is installed>/lib -l sfml-graphics -l sfml-window -l sfml-system
+```
+5. Run
+```
+./app
+```
 
 ## Libraries used
 >Simple and Fast Multimedia Library (SFML) used for graphics.
-## Commands used to run this project
-
-```
-g++ -c application.cpp -IC:/SFML-2.5.1/include
-
-g++ application.o -o app -LC:/SFML-2.5.1/lib -l sfml-graphics -l sfml-window -l sfml-system
-
-./app
-```
 
 ## Data Structures used in this project
 
