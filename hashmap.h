@@ -73,8 +73,10 @@ public:
 
         while (traverse)
         {
+            // cout << 'f';
             if (traverse->pix[0] == val[0] && traverse->pix[1] == val[1] && traverse->pix[2] == val[2])
                 return &(traverse->code);
+            traverse = traverse->next;
         }
 
         return NULL;
@@ -111,12 +113,14 @@ public:
     void insert(int val[], T code)
     {
         int index = hashFunc(val);
+        // cout << 'i';
         table[index].insert(val, code);
     }
 
     T *search(int val[])
     {
         int index = hashFunc(val);
+        // cout << 's';
         T *temp = table[index].search(val);
         return temp;
     }
@@ -151,6 +155,7 @@ public:
                     }
                 }
             }
+            // cout << 'n';
         }
         return root;
     }

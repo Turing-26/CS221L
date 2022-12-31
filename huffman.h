@@ -47,7 +47,10 @@ class HuffmanTree
         {
             makeHuffcode(node->left, code + '0');
             if (node->left == NULL && node->right == NULL)
+            {
                 h.insert(node->data, code);
+                cout << code << ' ';
+            }
             makeHuffcode(node->right, code + '1');
         }
     }

@@ -22,11 +22,12 @@ int main()
     HuffmanTree<int> t;
     HashMap<int> hf;
 
-    if (!photo.loadFromFile("sample.png"))
+    if (!photo.loadFromFile("CP-2.png"))
         return -1;
 
     Vector2<unsigned int> size = photo.getSize();
     int height = size.y, width = size.x;
+    cout << height << " " << width;
 
     // Create an array of the Color object ro store pixel values in RGB
     Color **photoArr = new Color *[width];
@@ -35,6 +36,7 @@ int main()
 
     for (int i = 0; i < width; i++)
     {
+        // cout << 'a';
         for (int j = 0; j < height; j++)
             photoArr[i][j] = photo.getPixel(i, j);
     }
@@ -55,6 +57,7 @@ int main()
             else
                 hf.insert(vals, 1);
         }
+        cout << 'v' << ' ';
     }
 
     // Creating a list of all frequencies and making a tree of them that uses huffman encoding to return their binary values
