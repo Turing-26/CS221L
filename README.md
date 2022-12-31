@@ -22,9 +22,7 @@ g++ <filename>.o -o app -lsfml-graphics -lsfml-window -lsfml-system
 ```
 
 ### On Windows:
-```
 1. Install SFML by clicking [here](https://www.sfml-dev.org/download/sfml/2.5.1/)
-```
 
 ## Libraries used
 >Simple and Fast Multimedia Library (SFML) used for graphics.
