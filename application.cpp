@@ -1,19 +1,34 @@
+/**
+ * @file application.cpp
+ * @author Sarim Ahmad(2021572), Tahir Muzaffar(2021665), Shehryar Ahmed(2021598)
+ * @brief This application is is the core of our image compression technique. It takes an image, breaks it down into its pixel components and then uses the widely used huffman encoding technique to output a compressed data file, we use the SFML library to use its image reading data structures to read an image directly and then apply our huffman encoding
+ * @version 0.1
+ * @date 2022-12-28
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <fstream>
 #include "huffman.h"
 using namespace std;
 using namespace sf;
 
 int main()
 {
+    // Image is being read from a png file below
     Image photo;
+    HuffmanTree<int> t;
+    HashMap<int> hf;
+
     if (!photo.loadFromFile("sample.png"))
         return -1;
 
     Vector2<unsigned int> size = photo.getSize();
-    HuffmanTree<int> t;
-    HashMap<int> hf;
     int height = size.y, width = size.x;
+
+    // Create an array of the Color object ro store pixel values in RGB
     Color **photoArr = new Color *[width];
     for (int i = 0; i < width; i++)
         photoArr[i] = new Color[height];
@@ -24,10 +39,7 @@ int main()
             photoArr[i][j] = photo.getPixel(i, j);
     }
 
-    // bool **arr = new bool *[width];
-    // for (int i = 0; i < width; i++)
-    //     arr[i] = new bool[height];
-
+    // Calculating the pixel frequencies of each RGB value and storing then in a HashMap
     for (int i = 0; i < width; i++)
     {
         for (int j = 0; j < height; j++)
@@ -37,7 +49,6 @@ int main()
 
             if (hf.search(vals))
             {
-                // cout << "a";
                 int *freq = hf.search(vals);
                 hf.insert(vals, *(freq) + 1);
             }
@@ -46,23 +57,30 @@ int main()
         }
     }
 
-    // RenderWindow window(VideoMode(200, 200), "SFML works!");
-    // CircleShape shape(100.f);
-    // shape.setFillColor(Color::Green);
+    // Creating a list of all frequencies and making a tree of them that uses huffman encoding to return their binary values
+    listNode<int> *node = hf.traverse();
 
-    // while (window.isOpen())
-    // {
-    //     Event event;
-    //     while (window.pollEvent(event))
-    //     {
-    //         if (event.type == Event::Closed)
-    //             window.close();
-    //     }
+    while (node)
+    {
+        t.insert(node->pix, node->code);
+        node = node->prev;
+    }
+    t.buildTree();
+    t.makeHuffcode();
 
-    //     window.clear();
-    //     window.draw(shape);
-    //     window.display();
-    // }
+    // Output the compressed values as in the image file in a compressed data file
+    ofstream file("compressed.data");
+
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            int col[3] = {photoArr[i][j].r, photoArr[i][j].g, photoArr[i][j].b};
+            string code = t.search(col);
+            file << code;
+        }
+        file << '\n';
+    }
 
     return 0;
 }

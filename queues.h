@@ -78,20 +78,10 @@ public:
 
         return s;
     }
-
-    // void display()
-    // {
-    //     Node<T> *traverse = front;
-
-    //     while (traverse)
-    //     {
-    //         cout << traverse->data << endl;
-    //         traverse = traverse->next;
-    //     }
-    // }
 };
 
 template <class T>
+// Double queue that can be inserted into and accessed from both sides, the front and the back
 class DoubleQueue
 {
     Node<T> *front;
@@ -188,17 +178,6 @@ public:
         return &(back->data);
     }
 
-    // void display()
-    // {
-    //     Node<T> *traverse = back;
-
-    //     while (traverse)
-    //     {
-    //         cout << traverse->data << endl;
-    //         traverse = traverse->prev;
-    //     }
-    // }
-
     bool empty()
     {
         if (!front)
@@ -209,6 +188,7 @@ public:
 };
 
 template <class T>
+// Priority queue used as a min queue to make the huffman tree
 class PriorityQueue
 {
     Node<T> *front;
