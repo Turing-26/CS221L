@@ -23,7 +23,7 @@ g++ <filename>.o -o app -lsfml-graphics -lsfml-window -lsfml-system
 
 ### On Windows:
 1. Install SFML by clicking [here](https://www.sfml-dev.org/download/sfml/2.5.1/). Let it install the default location.
-2. Copy the .dll files from the bin folder from the path where SFML is installed.
+2. Copy the .dll files from the bin folder from the path where SFML is installed to the root folder of your program.
 3. Run the command in the directory of the program
 ```
 g++ -c <filename>.cpp -I<path where SFML is installed>/include
