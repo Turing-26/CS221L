@@ -7,11 +7,18 @@ Group Members: Tahir Muzaffar (2021665), Sarim Ahmad (2021572), Shehryar Ahmad (
 
 ## Instructions on how tu run the program:-
 ### On Linux:
-```
 1. Install SFML by typing "sudo apt-get install libsfml-dev"
-2. In your directory containing the program run "g++ -c <filename>.cpp"
-3. Run "g++ <filename>.o -o app -lsfml-graphics -lsfml-window -lsfml-system"
-4. Run "./app"
+2. In your directory containing the program run
+```
+g++ -c <filename>.cpp
+```
+3. Now run
+```
+g++ <filename>.o -o app -lsfml-graphics -lsfml-window -lsfml-system
+```
+4. Run
+```
+./app
 ```
 
 ### On Windows:
