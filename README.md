@@ -14,6 +14,11 @@ Group Members: Tahir Muzaffar (2021665), Sarim Ahmad (2021572), Shehryar Ahmad (
 4. Run "./app"
 ```
 
+### On Windows:
+```
+1. Install SFML by clicking [here](https://www.sfml-dev.org/download/sfml/2.5.1/)
+```
+
 ## Libraries used
 >Simple and Fast Multimedia Library (SFML) used for graphics.
 ## Commands used to run this project
