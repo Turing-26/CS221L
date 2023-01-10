@@ -1,5 +1,5 @@
 # CS221L Project
-# Image Compressor using Huffman Encoding
+# Image Encryption using Huffman Encoding
 University: Ghulam Ishaq Khan Institute of Engineering Sciences and Technology\
 Course: Data Structures and Algorithms (Lab)\
 Course Instructor: Usama Arshad Janjua\
