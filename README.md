@@ -1,4 +1,3 @@
-# CS221L Project
 # Image Encryption using Huffman Encoding
 University: Ghulam Ishaq Khan Institute of Engineering Sciences and Technology\
 Course: Data Structures and Algorithms (Lab)\
